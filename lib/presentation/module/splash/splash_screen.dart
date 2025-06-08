@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:talket/presentation/module/onboarding/onboarding_screen.dart';
 
@@ -31,12 +32,14 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Lottie.asset(
-        MediaRes.luckyCatLoading,
-        width: 200,
-        height: 200,
-        fit: BoxFit.fill,
+    return Scaffold(
+      body: Center(
+        child: Lottie.asset(
+          MediaRes.luckyCatLoading,
+          width: 200,
+          height: 200,
+          fit: BoxFit.fill,
+        ),
       ),
     );
   }
