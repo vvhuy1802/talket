@@ -6,6 +6,7 @@ import 'package:talket/presentation/navigation/routes.dart';
 void main() async {
   // init di
   // await init();
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
