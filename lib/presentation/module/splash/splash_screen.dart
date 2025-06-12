@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:talket/presentation/module/home/home_screen.dart';
 import 'package:talket/presentation/module/onboarding/onboarding_screen.dart';
 
 import '../../../core/res/media_res.dart';
@@ -25,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _handleNavigate() {
     Navigator.of(context).pushNamedAndRemoveUntil(
-      OnboardingScreen.routeName,
+      HomeScreen.routeName,
       (route) => false,
     );
   }
