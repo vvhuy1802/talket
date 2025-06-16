@@ -1,10 +1,10 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage()
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
-
-  static const routeName = "/onboarding";
 
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:talket/presentation/module/splash/splash_screen.dart';
 import 'package:talket/presentation/navigation/routes.dart';
 
 void main() async {
@@ -23,20 +22,21 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: _appRouter.config(),
       debugShowCheckedModeBanner: false,
-      initialRoute: SplashScreen.routeName,
       title: "Talket",
       theme: ThemeData(
           colorScheme: ColorScheme.fromSwatch(accentColor: Colors.white),
           useMaterial3: true,
           appBarTheme: const AppBarTheme(color: Colors.transparent),
           visualDensity: VisualDensity.adaptivePlatformDensity),
-      onGenerateRoute: generateRoute,
     );
   }
 }

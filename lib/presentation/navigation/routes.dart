@@ -1,40 +1,16 @@
-import 'package:flutter/cupertino.dart';
-import 'package:talket/presentation/module/conversion/conversion_screen.dart';
-import 'package:talket/presentation/module/home/home_screen.dart';
-import 'package:talket/presentation/module/onboarding/onboarding_screen.dart';
-import 'package:talket/presentation/module/splash/splash_screen.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:talket/presentation/navigation/routes.gr.dart';
 
-import '../../domain/model/conversion/conversion_args.dart';
+@AutoRouterConfig(replaceInRouteName: 'Screen|Page,Route')
+class AppRouter extends RootStackRouter {
+  @override
+  RouteType get defaultRouteType => RouteType.material();
 
-Route<dynamic> generateRoute(RouteSettings settings) {
-  switch (settings.name) {
-    case SplashScreen.routeName:
-      return _pageBuilder((context) => const SplashScreen(),
-          settings: settings);
-    case OnboardingScreen.routeName:
-      return _pageBuilder((context) => const OnboardingScreen(),
-          settings: settings);
-    case HomeScreen.routeName:
-      return _pageBuilder((context) => const HomeScreen(), settings: settings);
-    case ConversionScreen.routeName:
-      final args = settings.arguments as ConversionArgs;
-      return _pageBuilder(
-        (context) => ConversionScreen(args: args),
-        settings: settings,
-      );
-    default:
-      return _pageBuilder((context) => const OnboardingScreen(),
-          settings: settings);
-  }
-}
-
-PageRouteBuilder<dynamic> _pageBuilder(Widget Function(BuildContext) page,
-    {required RouteSettings settings}) {
-  return PageRouteBuilder(
-      settings: settings,
-      transitionsBuilder: (_, animation, __, child) => FadeTransition(
-            opacity: animation,
-            child: child,
-          ),
-      pageBuilder: (context, _, __) => page(context));
+  @override
+  List<AutoRoute> get routes => [
+        AutoRoute(page: SplashRoute.page, initial: true),
+        AutoRoute(page: OnboardingRoute.page),
+        AutoRoute(page: ConversionRoute.page),
+        AutoRoute(page: HomeRoute.page),
+      ];
 }

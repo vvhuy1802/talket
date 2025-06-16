@@ -1,10 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:talket/presentation/module/chat/widgets/app_bar_chat.dart';
 import 'package:talket/presentation/module/chat/widgets/chat_item.dart';
+import 'package:talket/presentation/navigation/routes.gr.dart';
 
 import '../../../domain/model/conversion/conversion_args.dart';
-import '../conversion/conversion_screen.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -35,11 +36,9 @@ class _ChatScreenState extends State<ChatScreen>
                     child: FadeInAnimation(
                       child: ChatItem(
                         onTap: () {
-                          Navigator.pushNamed(
-                            context,
-                            ConversionScreen.routeName,
-                            arguments: ConversionArgs(from: 'Huy', to: 'Minh Khanh'),
-                          );
+                          AutoRouter.of(context).push(ConversionRoute(
+                              args: ConversionArgs(
+                                  from: 'Huy', to: 'Minh Khanh')));
                         },
                       ),
                     ),

@@ -1,12 +1,12 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
 
 import '../chat/chat_screen.dart';
 
+@RoutePage()
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-
-  static const routeName = "/home";
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();

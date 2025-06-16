@@ -1,15 +1,13 @@
-import 'package:flutter/cupertino.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:talket/presentation/module/home/home_screen.dart';
-import 'package:talket/presentation/module/onboarding/onboarding_screen.dart';
+import 'package:talket/presentation/navigation/routes.gr.dart';
 
 import '../../../core/res/media_res.dart';
 
+@RoutePage()
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
-
-  static const routeName = "/";
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -25,9 +23,9 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _handleNavigate() {
-    Navigator.of(context).pushNamedAndRemoveUntil(
-      HomeScreen.routeName,
-      (route) => false,
+    AutoRouter.of(context).pushAndPopUntil(
+      const HomeRoute(),
+      predicate: (route) => false,
     );
   }
 

@@ -1,13 +1,14 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:talket/presentation/module/conversion/widgets/app_bar_conversion.dart';
 
 import '../../../domain/model/conversion/conversion_args.dart';
 
+@RoutePage()
 class ConversionScreen extends StatefulWidget {
   const ConversionScreen({super.key, required this.args});
 
-  static const routeName = '/conversion';
   final ConversionArgs args;
 
   @override
@@ -15,13 +16,10 @@ class ConversionScreen extends StatefulWidget {
 }
 
 class _ConversionScreenState extends State<ConversionScreen> {
-  late final ConversionArgs _args;
-
   @override
   void initState() {
     super.initState();
-    _args = widget.args;
-    debugPrint('From: ${_args.from}, To: ${_args.to}');
+    debugPrint('From: ${widget.args.from}, To: ${widget.args.to}');
   }
 
   @override
@@ -80,9 +78,7 @@ class _ConversionScreenState extends State<ConversionScreen> {
                 duration: const Duration(milliseconds: 400),
                 child: SlideAnimation(
                   verticalOffset: 50.0,
-                  child: FadeInAnimation(
-                    child: Text("Hello")
-                  ),
+                  child: FadeInAnimation(child: Text("Hello")),
                 ),
               );
             },
