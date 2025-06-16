@@ -3,6 +3,9 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:talket/presentation/module/chat/widgets/app_bar_chat.dart';
 import 'package:talket/presentation/module/chat/widgets/chat_item.dart';
 
+import '../../../domain/model/conversion/conversion_args.dart';
+import '../conversion/conversion_screen.dart';
+
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
 
@@ -10,7 +13,8 @@ class ChatScreen extends StatefulWidget {
   State<ChatScreen> createState() => _ChatScreenState();
 }
 
-class _ChatScreenState extends State<ChatScreen> with AutomaticKeepAliveClientMixin {
+class _ChatScreenState extends State<ChatScreen>
+    with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -29,7 +33,15 @@ class _ChatScreenState extends State<ChatScreen> with AutomaticKeepAliveClientMi
                   child: SlideAnimation(
                     verticalOffset: 50.0,
                     child: FadeInAnimation(
-                      child: ChatItem(),
+                      child: ChatItem(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            ConversionScreen.routeName,
+                            arguments: ConversionArgs(from: 'Huy', to: 'Minh Khanh'),
+                          );
+                        },
+                      ),
                     ),
                   ),
                 );

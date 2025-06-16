@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:talket/presentation/module/conversion/conversion_screen.dart';
 import 'package:talket/presentation/module/home/home_screen.dart';
 import 'package:talket/presentation/module/onboarding/onboarding_screen.dart';
 import 'package:talket/presentation/module/splash/splash_screen.dart';
+
+import '../../domain/model/conversion/conversion_args.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -13,6 +16,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
           settings: settings);
     case HomeScreen.routeName:
       return _pageBuilder((context) => const HomeScreen(), settings: settings);
+    case ConversionScreen.routeName:
+      final args = settings.arguments as ConversionArgs;
+      return _pageBuilder(
+        (context) => ConversionScreen(args: args),
+        settings: settings,
+      );
     default:
       return _pageBuilder((context) => const OnboardingScreen(),
           settings: settings);
