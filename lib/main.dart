@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:talket/presentation/navigation/routes.dart';
 
+import 'core/observers.dart';
+import 'di/injection_container.dart';
+
 void main() async {
-  // init di
-  // await init();
+  await init();
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -18,7 +21,12 @@ void main() async {
       systemNavigationBarIconBrightness: Brightness.dark,
     ),
   );
-  runApp(MyApp());
+  runApp(ProviderScope(
+    // observers: [
+    //   Observers(),
+    // ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

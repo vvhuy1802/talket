@@ -15,18 +15,14 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 1;
 
-  List<Widget> tabItems = [
-    Center(child: Text("contacts")),
-    ChatScreen(),
-    Center(child: Text("settings")),
+  late final List<Widget> _tabItems = [
+    const Center(child: Text("Contacts")),
+    const ChatScreen(),
+    const Center(child: Text("Settings")),
   ];
 
-  @override
-  void initState() {
-    super.initState();
-  }
-
   final pageController = PageController(initialPage: 1);
+
   void onPageChanged(int index) {
     setState(() {
       _selectedIndex = index;
@@ -40,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: PageView(
           controller: pageController,
           onPageChanged: onPageChanged,
-          children: tabItems,
+          children: _tabItems,
         ),
       ),
       bottomNavigationBar: FlashyTabBar(
