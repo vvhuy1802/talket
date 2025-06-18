@@ -1,12 +1,13 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 
 class CurlInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     final curl = _generateCurlCommand(options);
-    print('🌀 CURL:\n$curl\n');
+    debugPrint('🌀 CURL:\n$curl\n');
     super.onRequest(options, handler);
   }
 
