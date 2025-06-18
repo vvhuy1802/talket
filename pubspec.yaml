@@ -61,6 +61,7 @@ dependencies:
   dartz: ^0.10.1
   flutter_riverpod: ^2.6.1
   freezed: ^2.5.8
+  logger: ^2.5.0
 
 dev_dependencies:
   flutter_test:

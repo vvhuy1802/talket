@@ -3,11 +3,15 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../../../di/injection_container.dart';
+import '../../../utils/helpters/logging_helper.dart';
+
 class CurlInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     final curl = _generateCurlCommand(options);
-    debugPrint('🌀 CURL:\n$curl\n');
+    final logger = getIt.get<LoggingHelper>();
+    logger.info('🌀 CURL: $curl');
     super.onRequest(options, handler);
   }
 
