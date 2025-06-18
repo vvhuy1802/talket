@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:talket/presentation/navigation/routes.dart';
 
-import 'core/observers.dart';
 import 'di/injection_container.dart';
 
 void main() async {
@@ -22,9 +21,6 @@ void main() async {
     ),
   );
   runApp(ProviderScope(
-    // observers: [
-    //   Observers(),
-    // ],
     child: MyApp(),
   ));
 }

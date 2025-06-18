@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _handleNavigate() {
     AutoRouter.of(context).pushAndPopUntil(
-      const HomeRoute(),
+      const DemoLogin(),
       predicate: (route) => false,
     );
   }
